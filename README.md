@@ -49,6 +49,9 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
 - **[Lendio](https://lendio.com)**
 
+
+
+
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
@@ -64,3 +67,82 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Laravel 9 Rest API CRUD
+Login API
+Register API
+GetUser Info API
+Product List API
+Create Product API
+Edit Product API
+Update Product API
+Delete Product API
+
+
+Step 1: Download Laravel 9 App
+
+composer create-project --prefer-dist laravel/laravel blog
+
+Step 2: Configure Database with App
+
+ DB_CONNECTION=mysql 
+ DB_HOST=127.0.0.1 
+ DB_PORT=3306 
+ DB_DATABASE=here your database name here
+ DB_USERNAME=here database username here
+ DB_PASSWORD=here database password here
+
+
+Step 3: Install Passport Auth
+
+composer require laravel/passport
+
+Step 4: Passport Configuration
+
+  // config/app.php
+
+'providers' =>[
+ Laravel\Passport\PassportServiceProvider::class,
+ ],
+ 
+ php artisan passport:install
+ 
+ <?php
+ 
+namespace App\Models;
+ 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
+ 
+class User extends Authenticatable
+{
+    use Notifiable, HasApiTokens;
+    
+}
+
+
+
+
+<?php
+namespace App\Providers;
+use Laravel\Passport\Passport;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+ 
+ 
+class AuthServiceProvider extends ServiceProvider
+
+
+
+
+Step 5: Create Product Table and Model
+
+
+
+Step 5: Run Migration
+Step 6: Create Auth and CRUD APIs Route
+Step 7: Create Passport Auth and CRUD Controller
+Step 8: Test Laravel 9 REST CRUD API with Passport Auth in Postman
